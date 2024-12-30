@@ -1,42 +1,37 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class EmployeeService {
-  private employees: any[] = [];
 
-  constructor() {
-    if (this.isBrowser()) {
-      const storedEmployees = localStorage.getItem('employees');
-      this.employees = storedEmployees ? JSON.parse(storedEmployees) : [];
-    }
-  }
+  private employeesSubject = new BehaviorSubject<any[]>(JSON.parse(localStorage.getItem('employees') || '[]'));
+  private employees$ = this.employeesSubject.asObservable();
 
   getEmployees() {
-    return this.employees;
+    return this.employees$;
   }
 
   addEmployee(employee: any) {
-    this.employees.push(employee);
-    this.saveToLocalStorage();
+    const employees = [...this.employeesSubject.value, employee];
+    this.employeesSubject.next(employees);
+    this.saveToLocalStorage(employees);
   }
 
-  updateEmployee(index: number, employee: any) {
-    this.employees[index] = employee;
-    this.saveToLocalStorage();
+  updateEmployee(index: number, updatedEmployee: any) {
+    const employees = [...this.employeesSubject.value];
+    employees[index] = updatedEmployee;
+    this.employeesSubject.next(employees);
+    this.saveToLocalStorage(employees);
   }
 
   deleteEmployee(index: number) {
-    this.employees.splice(index, 1);
-    this.saveToLocalStorage();
+    const employees = [...this.employeesSubject.value];
+    employees.splice(index, 1);
+    this.employeesSubject.next(employees);
+    this.saveToLocalStorage(employees);
   }
 
-  private saveToLocalStorage() {
-    if (this.isBrowser()) {
-      localStorage.setItem('employees', JSON.stringify(this.employees));
-    }
-  }
-
-  private isBrowser(): boolean {
-    return typeof window !== 'undefined' && typeof localStorage !== 'undefined';
+  private saveToLocalStorage(employees: any[]) {
+    localStorage.setItem('employees', JSON.stringify(employees));
   }
 }
