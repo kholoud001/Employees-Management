@@ -20,7 +20,7 @@ export class EmployeeFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private employeeService: EmployeeService,
-    private router: Router,
+    protected router: Router,
     private route: ActivatedRoute
   ) {}
 
