@@ -10,7 +10,8 @@ import { Router, ActivatedRoute } from '@angular/router';
   standalone:false,
   styleUrl: './employee-form.component.css'
 })
-export class EmployeeFormComponent implements OnInit{
+
+export class EmployeeFormComponent implements OnInit {
 
   employeeForm!: FormGroup;
   isEditMode: boolean = false;
@@ -19,9 +20,9 @@ export class EmployeeFormComponent implements OnInit{
   constructor(
     private fb: FormBuilder,
     private employeeService: EmployeeService,
-    protected router: Router,
-    private route: ActivatedRoute) {}
-
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.initForm();
@@ -31,10 +32,14 @@ export class EmployeeFormComponent implements OnInit{
       if (params['id']) {
         this.isEditMode = true;
         this.employeeIndex = +params['id'];
-        const employee = this.employeeService.getEmployees()[this.employeeIndex];
-        if (employee) {
-          this.employeeForm.patchValue(employee);
-        }
+
+        // Subscribe to the employee list observable
+        this.employeeService.getEmployees().subscribe((employees: any[]) => {
+          const employee = employees[this.employeeIndex];
+          if (employee) {
+            this.employeeForm.patchValue(employee);
+          }
+        });
       }
     });
   }
@@ -60,6 +65,4 @@ export class EmployeeFormComponent implements OnInit{
 
     this.router.navigate(['/employees']);
   }
-
-
 }

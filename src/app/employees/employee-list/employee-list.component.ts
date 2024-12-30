@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {EmployeeService} from '../employee.service';
 import {Router} from '@angular/router';
 
@@ -10,29 +10,26 @@ import {Router} from '@angular/router';
   templateUrl: './employee-list.component.html',
   styleUrl: './employee-list.component.css'
 })
-export class EmployeeListComponent {
+export class EmployeeListComponent implements OnInit {
 
   employees: any[] = [];
 
-  constructor(private employeeService: EmployeeService,
-              protected router: Router) {}
+  constructor(private employeeService: EmployeeService, private router: Router) {}
 
   ngOnInit(): void {
-    this.loadEmployees();
+    this.employeeService.getEmployees().subscribe((employees: any[]) => {
+      this.employees = employees;
+    });
   }
 
-  loadEmployees(): void {
-    this.employees = this.employeeService.getEmployees();
-  }
-
-  deleteEmployee(id: number): void {
+  deleteEmployee(index: number): void {
     if (confirm('Êtes-vous sûr de vouloir supprimer cet employé ?')) {
-      this.employeeService.deleteEmployee(id);
-      this.loadEmployees();
+      this.employeeService.deleteEmployee(index);
     }
   }
-  onAdd():void{
+
+  onAdd(): void {
     this.router.navigate(['/employees/add']);
   }
-
 }
+
