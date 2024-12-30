@@ -12,7 +12,7 @@ import {EmployeeService} from '../employee.service';
 export class EmployeeFormComponent implements OnInit{
 
   employeeForm!:FormGroup;
-  
+
   constructor(private employeeService:EmployeeService, private fb: FormBuilder) {
   }
 
