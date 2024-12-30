@@ -1,17 +1,21 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-
 export class EmployeeService {
+  private employees: any[] = [];
 
-  //constructor() { }
-  private employees=JSON.parse(localStorage.getItem('employees')||'[]');
+  constructor() {
+    if (this.isBrowser()) {
+      const storedEmployees = localStorage.getItem('employees');
+      this.employees = storedEmployees ? JSON.parse(storedEmployees) : [];
+    }
+  }
 
-  getEmployess(){
+  getEmployees() {
     return this.employees;
   }
 
-  addEmployee(employee:any){
+  addEmployee(employee: any) {
     this.employees.push(employee);
     this.saveToLocalStorage();
   }
@@ -26,9 +30,13 @@ export class EmployeeService {
     this.saveToLocalStorage();
   }
 
-  private saveToLocalStorage(){
-    localStorage.setItem('employees',JSON.stringify(this.employees));
+  private saveToLocalStorage() {
+    if (this.isBrowser()) {
+      localStorage.setItem('employees', JSON.stringify(this.employees));
+    }
   }
 
-
+  private isBrowser(): boolean {
+    return typeof window !== 'undefined' && typeof localStorage !== 'undefined';
+  }
 }
