@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
+
 export class EmployeeService {
 
   private employeesSubject = new BehaviorSubject<any[]>(JSON.parse(localStorage.getItem('employees') || '[]'));
