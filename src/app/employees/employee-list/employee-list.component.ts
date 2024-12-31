@@ -4,10 +4,9 @@ import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-employee-list',
-  //imports: [],
   providers: [EmployeeService],
   standalone:false,
-  templateUrl: './employee-list.component.html',
+  templateUrl: "./employee-list.component.html",
   styleUrl: './employee-list.component.css'
 })
 export class EmployeeListComponent implements OnInit {

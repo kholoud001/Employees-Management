@@ -1,7 +1,5 @@
 import { DateFormatPipe } from './date-format.pipe';
-import { DatePipe } from '@angular/common';
-
-
+import {DatePipe} from '@angular/common';
 
 describe('DateFormatPipe', () => {
   it('create an instance', () => {

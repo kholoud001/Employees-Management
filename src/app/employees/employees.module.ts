@@ -7,13 +7,14 @@ import { EmployeeCardComponent} from './employee-card/employee-card.component';
 import {EmployeeFormComponent} from './employee-form/employee-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {DateFormatPipe} from '../date-format.pipe';
+import {AppComponent} from '../app.component';
 
 
 @NgModule({
   declarations: [
     EmployeeListComponent,
-    EmployeeCardComponent,
     EmployeeFormComponent,
+    EmployeeCardComponent,
     DateFormatPipe,
   ],
   imports: [
