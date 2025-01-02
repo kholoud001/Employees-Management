@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeFormComponent } from './employee-form/employee-form.component';
 import {EmployeeCardComponent} from './employee-card/employee-card.component';
-import {DateFormatPipe} from './date-format.pipe';
+import {DateFormatPipe} from './pipes/date-format.pipe';
 import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({

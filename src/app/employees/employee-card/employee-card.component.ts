@@ -1,10 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import {EmployeeService} from '../employee.service';
 import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-employee-card',
-  providers: [EmployeeService],
   standalone:false,
   templateUrl: './employee-card.component.html',
   styleUrl: './employee-card.component.css'
@@ -14,7 +12,7 @@ export class EmployeeCardComponent {
   @Input() index!: number;
   @Output() delete = new EventEmitter<number>();
 
-  constructor(private router: Router, private employeeService: EmployeeService) {}
+  constructor(private router: Router) {}
 
 
   onDelete(): void {
