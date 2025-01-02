@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
+import { HighlightDirective } from './employees/highlight-directive/highlight.directive';
 
 @NgModule({
   declarations: [

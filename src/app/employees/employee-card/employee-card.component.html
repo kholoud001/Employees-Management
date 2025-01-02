@@ -1,12 +1,8 @@
-<div class="employee-card">
+<div class="employee-card" [appHighlight]="'lightgreen'">
   <div class="employee-details">
     <h3>{{ employee.name }}</h3>
     <p>Email: {{ employee.email }}</p>
-    <!-- Exemple d'utilisation du pipe pour formater une date -->
     <p>Date Ambauche: {{ employee.hireDate | dateFormat:'dd/MM/yyyy' }}</p>
-
-
-<!--        <p>Hire Date: {{ employee.hireDate | date }}</p>-->
   </div>
   <div class="employee-actions">
     <button (click)="onDelete()" class="btn btn-danger">Supprimer</button>
