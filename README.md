@@ -59,4 +59,4 @@ This project is an Angular-based application designed to manage employee data. I
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/kholoud001/employee-management.git
+   git clone https://github.com/kholoud001/Employees-Management.git
