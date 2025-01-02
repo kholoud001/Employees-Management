@@ -10,7 +10,7 @@ export class DateFormatPipe implements PipeTransform {
 
   constructor(private datePipe: DatePipe) {}
 
-  transform(value: any, format: string = 'dd/MM/yyyy'): any {
+  transform(value: any, format: string = 'dd/MMMM/yyyy'): any {
     if (!value) return null;
 
     return this.datePipe.transform(value, format);

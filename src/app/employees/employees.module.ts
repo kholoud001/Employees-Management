@@ -1,28 +1,30 @@
 import { NgModule } from '@angular/core';
 import {CommonModule, DatePipe} from '@angular/common';
-
-import { EmployeesRoutingModule } from './employees-routing.module';
-import { EmployeeListComponent} from './employee-list/employee-list.component';
-import { EmployeeCardComponent} from './employee-card/employee-card.component';
-import {EmployeeFormComponent} from './employee-form/employee-form.component';
+import { RouterModule } from '@angular/router';
+import { EmployeeListComponent } from './employee-list/employee-list.component';
+import { EmployeeFormComponent } from './employee-form/employee-form.component';
+import {EmployeeCardComponent} from './employee-card/employee-card.component';
+import {DateFormatPipe} from './date-format.pipe';
 import {ReactiveFormsModule} from '@angular/forms';
-import {DateFormatPipe} from '../date-format.pipe';
-import {AppComponent} from '../app.component';
-
 
 @NgModule({
   declarations: [
     EmployeeListComponent,
-    EmployeeFormComponent,
     EmployeeCardComponent,
-    DateFormatPipe,
+    EmployeeFormComponent,
+    DateFormatPipe
+  ],
+  providers:[
+    DatePipe
   ],
   imports: [
     CommonModule,
-    EmployeesRoutingModule,
-    ReactiveFormsModule
-  ],
-  providers: [DatePipe],
-
+    ReactiveFormsModule,
+    RouterModule.forChild([
+      { path: '', component: EmployeeListComponent },
+      { path: 'add', component: EmployeeFormComponent },
+      { path: 'edit/:id', component: EmployeeFormComponent }
+    ])
+  ]
 })
 export class EmployeesModule { }

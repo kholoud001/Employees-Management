@@ -5,11 +5,13 @@ import { BehaviorSubject } from 'rxjs';
 
 export class EmployeeService {
 
-  private employeesSubject = new BehaviorSubject<any[]>(JSON.parse(localStorage.getItem('employees') || '[]'));
-  private employees$ = this.employeesSubject.asObservable();
+  private employeesSubject = new BehaviorSubject<any[]>(
+    typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('employees') || '[]') : []
+  );
+  private employees = this.employeesSubject.asObservable();
 
   getEmployees() {
-    return this.employees$;
+    return this.employees;
   }
 
   addEmployee(employee: any) {
