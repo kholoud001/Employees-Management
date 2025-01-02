@@ -1,59 +1,62 @@
-# EmployeeManagementMain
+# Employee Management Application
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
+## Project Description
 
-## Development server
+This project is an Angular-based application designed to manage employee data. It allows users to efficiently **add**, **edit**, **delete**, and **view** employee records. The application aims to provide a smooth user experience with optimized performance, leveraging Angular's features such as lazy loading, reactive forms, and modular architecture. Data is persisted using `localStorage`, ensuring employee data is retained even after page reloads.
 
-To start a local development server, run:
+### Main Features:
+- **Employee Management**: Allows adding, editing, deleting, and viewing employee information.
+- **Optimized Performance**: Uses `localStorage` to persist employee data for performance efficiency.
+- **Modular Architecture**: Organizes components and services for better maintainability.
+- **User-Friendly Interface**: Features responsive design with forms and interactive components.
+- **Testing**: Unit tests are written for verifying the functionality of services and components.
 
-```bash
-ng serve
-```
+## Technologies and Tools Used
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **Angular (Version 15+)**: A powerful framework for building dynamic single-page applications.
+- **TypeScript**: The primary programming language used.
+- **Reactive Forms & Template-driven Forms**: For handling employee data input with client-side validations (e.g., email validation, required fields).
+- **LocalStorage**: For persisting employee data in the browser.
+- **Routing & Lazy Loading**: For smooth navigation and efficient module loading.
+- **RxJS & Observables**: Used for managing asynchronous data streams, ensuring real-time UI updates.
+- **Angular CLI**: For project generation and management.
+- **Unit Testing**: Written with Jasmine and Karma to ensure the accuracy of services and components.
 
-## Code scaffolding
+## Key Features and Tasks Implemented
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+1. **EmployeeService**: 
+   - Handles all operations related to employees such as adding, updating, deleting, and retrieving employee data from `localStorage`.
+   - Provides methods in an observable manner to facilitate real-time updates.
 
-```bash
-ng generate component component-name
-```
+2. **Reactive Forms**:
+   - Implemented forms for adding and editing employee data.
+   - Validations are applied to ensure valid and required input fields (e.g., valid email).
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+3. **Routing**:
+   - Configured routes for employee management (`/employees`, `/employee/add`, `/employee/edit/:id`).
+   - Used lazy loading to load the employee management module only when needed.
 
-```bash
-ng generate --help
-```
+4. **Components**:
+   - `EmployeeListComponent`: Displays a list of employees.
+   - `EmployeeCardComponent`: Shows detailed information of an individual employee.
+   - `EmployeeFormComponent`: Form for adding or editing employee details.
 
-## Building
+5. **Directives & Pipes**:
+   - **Highlight Directive**: Highlights the selected employee.
+   - **DateFormat Pipe**: Formats the employee’s hire date for better readability.
 
-To build the project run:
+6. **State Management with LocalStorage**:
+   - Stores and retrieves the employee list from `localStorage` to ensure data persistence.
 
-```bash
-ng build
-```
+7. **Parent/Child Component Communication**:
+   - Utilized `@Input` and `@Output` decorators to pass data between parent (`EmployeeListComponent`) and child (`EmployeeCardComponent`) components.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+8. **Unit Testing**:
+   - Written unit tests for the `EmployeeService` to ensure correct handling of employee data.
+   - Component tests to verify functionality, such as adding an employee via the form and displaying the employee list correctly.
 
-## Running unit tests
+## Installation and Setup
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/kholoud001/employee-management.git
