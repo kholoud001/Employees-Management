@@ -1,11 +1,21 @@
 <div class="employee-list">
   <h1>Liste des employés</h1>
   <button (click)="onAdd()">Ajouter employé</button>
-  <div class="employee-container" *ngFor="let employee of employees; let i = index">
-    <app-employee-card
-      [employee]="employee"
-      [index]="i"
-      (delete)="deleteEmployee($event)">
-    </app-employee-card>
+  <div class="employee-table">
+    <!-- Table Header -->
+    <div class="employee-header">
+      <div class="header-cell">Nom d'employé</div>
+      <div class="header-cell">Email</div>
+      <div class="header-cell">Date Ambauche</div>
+      <div class="header-cell">Actions</div>
+    </div>
+    <!-- Employee Cards -->
+    <div *ngFor="let employee of employees; let i = index">
+      <app-employee-card
+        [employee]="employee"
+        [index]="i"
+        (delete)="deleteEmployee($event)">
+      </app-employee-card>
+    </div>
   </div>
 </div>

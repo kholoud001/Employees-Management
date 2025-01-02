@@ -1,11 +1,11 @@
-<div class="employee-card" [appHighlight]="'lightgreen'">
-  <div class="employee-details">
-    <h3>{{ employee.name }}</h3>
-    <p>Email: {{ employee.email }}</p>
-    <p>Date Ambauche: {{ employee.hireDate | dateFormat:'dd/MM/yyyy' }}</p>
-  </div>
-  <div class="employee-actions">
-    <button (click)="onDelete()" class="btn btn-danger">Supprimer</button>
-    <button (click)="onEdit()" class="btn btn-warning">Modifier</button>
+<div class="employee-card" [appHighlight]="'lightyellow'">
+  <div class="employee-row">
+    <div class="employee-detail">{{ employee.name }}</div>
+    <div class="employee-detail">{{ employee.email }}</div>
+    <div class="employee-detail">{{ employee.hireDate | dateFormat:'dd/MM/yyyy' }}</div>
+    <div class="employee-actions">
+      <button (click)="onDelete()" class="btn btn-danger">Supprimer</button>
+      <button (click)="onEdit()" class="btn btn-warning">Modifier</button>
+    </div>
   </div>
 </div>
