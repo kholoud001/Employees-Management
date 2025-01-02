@@ -13,9 +13,9 @@ This project is an Angular-based application designed to manage employee data. I
 
 ## Technologies and Tools Used
 
-- **Angular (Version 15+)**: A powerful framework for building dynamic single-page applications.
+- **Angular (Version 19)**: A powerful framework for building dynamic single-page applications.
 - **TypeScript**: The primary programming language used.
-- **Reactive Forms & Template-driven Forms**: For handling employee data input with client-side validations (e.g., email validation, required fields).
+- **Reactive Forms**: For handling employee data input with client-side validations (e.g., email validation, required fields).
 - **LocalStorage**: For persisting employee data in the browser.
 - **Routing & Lazy Loading**: For smooth navigation and efficient module loading.
 - **RxJS & Observables**: Used for managing asynchronous data streams, ensuring real-time UI updates.
