@@ -11,6 +11,8 @@ export class DateFormatPipe implements PipeTransform {
   constructor(private datePipe: DatePipe) {}
 
   transform(value: any, format: string = 'dd/MMMM/yyyy'): any {
+    console.log('Valeur reçue dans le pipe:', value);
+
     if (!value) return null;
 
     return this.datePipe.transform(value, format);

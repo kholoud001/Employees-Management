@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { HighlightDirective } from './employees/highlight-directive/highlight.directive';
+import {EmployeesModule} from './employees/employees.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { HighlightDirective } from './employees/highlight-directive/highlight.di
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    EmployeesModule
   ],
   providers: [
     provideClientHydration(withEventReplay())
