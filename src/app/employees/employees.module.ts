@@ -28,5 +28,9 @@ import {HighlightDirective} from './highlight-directive/highlight.directive';
       { path: 'edit/:id', component: EmployeeFormComponent }
     ])
   ]
+  // exports: [
+  //   EmployeeListComponent,
+  //   HighlightDirective
+  // ]
 })
 export class EmployeesModule { }
